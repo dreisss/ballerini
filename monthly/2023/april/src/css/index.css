@@ -1,0 +1,106 @@
+aside {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+aside svg {
+  width: 2em;
+  height: 2em;
+  transition: stroke 250ms ease-in-out;
+  stroke: var(--gray-light);
+}
+
+aside:hover svg {
+  stroke: var(--white);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding: 1rem !important;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+#emoji-figure > span {
+  display: inline-block;
+  max-height: 4rem;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+#main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 5.869rem;
+  text-align: center;
+}
+
+#main-text h1 {
+  font-weight: 700;
+  color: var(--white);
+}
+
+#main-text h2 {
+  font-weight: 400;
+  color: var(--gray-light);
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 35rem;
+  border-radius: 0.5rem;
+  background-color: var(--gray-darker);
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem !important;
+}
+
+input {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  color: var(--gray);
+}
+
+:is(form:focus-within ~ #results, #results:hover) {
+  max-height: 38.329vh;
+}
+
+#results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+  overflow-y: scroll;
+}
+
+#results::before {
+  content: "";
+  padding: 1px;
+  background-color: var(--gray-dark);
+  margin: 0.125rem 0;
+}
+
+#results > :last-child {
+  margin-bottom: 1rem;
+}

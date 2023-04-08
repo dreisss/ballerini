@@ -1,0 +1,53 @@
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result :first-child {
+  display: flex;
+  gap: 1rem;
+}
+
+.result img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.result hgroup {
+  cursor: text;
+}
+
+.result h3 {
+  font-size: 1.25rem;
+  color: var(--white-dark);
+}
+
+.result h4 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--gray-light);
+}
+
+.result a {
+  padding: 0.25rem 0.5rem;
+  border: 2px solid var(--gray);
+  border-radius: 0.25rem;
+  background-color: var(--gray-dark);
+  color: var(--gray-light);
+  font-weight: 500;
+  text-decoration: none;
+  transition: scale 100ms ease-in-out;
+}
+
+.result a:hover {
+  scale: 1.1;
+}
+
+.result.message {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray);
+}

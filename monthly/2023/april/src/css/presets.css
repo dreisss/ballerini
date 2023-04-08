@@ -1,0 +1,32 @@
+:root {
+  --white: #f4f4f5;
+  --white-dark: #e4e4e7;
+  --gray-light: #a1a1aa;
+  --gray: #52525b;
+  --gray-dark: #3f3f46;
+  --gray-darker: #27272a;
+  background-color: #18181b;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+:root * {
+  padding: 0;
+  margin: 0;
+}
+
+*::selection {
+  background-color: var(--gray-darker);
+}
+
+#main *::selection {
+  background-color: var(--gray-light);
+}
+
+::placeholder {
+  color: var(--gray);
+}
+
+input:focus-within {
+  outline: none;
+}
