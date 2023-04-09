@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .result :first-child {
@@ -16,38 +17,35 @@
   border-radius: 0.5rem;
 }
 
-.result hgroup {
-  cursor: text;
-}
-
-.result h3 {
+.result.message {
   font-size: 1.25rem;
-  color: var(--white-dark);
-}
-
-.result h4 {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--gray-light);
+  font-weight: 700;
+  color: var(--color-4);
 }
 
 .result a {
   padding: 0.25rem 0.5rem;
-  border: 2px solid var(--gray);
+  border: 2px solid var(--color-4);
   border-radius: 0.25rem;
-  background-color: var(--gray-dark);
-  color: var(--gray-light);
+  background-color: var(--color-5);
+  color: var(--color-3);
   font-weight: 500;
   text-decoration: none;
-  transition: scale 100ms ease-in-out;
+}
+
+:root[data-theme="light"] .result a {
+  --color-4: var(--color-5);
+  --color-3: var(--color-7);
+  --color-1: var(--color-7);
 }
 
 .result a:hover {
-  scale: 1.1;
+  border-color: var(--color-8);
+  background-color: var(--color-8);
+  color: var(--color-1);
 }
 
-.result.message {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--gray);
+.result a:focus {
+  outline: var(--color-5) 2px solid;
+  outline-offset: 0.25rem;
 }

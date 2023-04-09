@@ -1,32 +1,69 @@
 :root {
-  --white: #f4f4f5;
-  --white-dark: #e4e4e7;
-  --gray-light: #a1a1aa;
-  --gray: #52525b;
-  --gray-dark: #3f3f46;
-  --gray-darker: #27272a;
-  background-color: #18181b;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  background-color: var(--color-7);
 }
 
-:root * {
+* {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  transition: all 250ms ease-in-out;
+  outline: 0 solid transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-4);
+  border-radius: 1rem;
 }
 
 *::selection {
-  background-color: var(--gray-darker);
+  background-color: var(--color-6);
+  color: var(--color-4);
 }
 
-#main *::selection {
-  background-color: var(--gray-light);
+main label *::selection {
+  background-color: var(--color-5);
+  color: var(--color-7);
 }
 
 ::placeholder {
-  color: var(--gray);
+  color: var(--color-4);
 }
 
-input:focus-within {
-  outline: none;
+:is(h1, h2, h3, h4) {
+  cursor: text;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-1);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-3);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-2);
+}
+
+h4 {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-3);
+}
+
+a {
+  cursor: pointer;
 }

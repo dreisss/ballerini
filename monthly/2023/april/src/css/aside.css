@@ -1,0 +1,44 @@
+aside {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 1em;
+}
+
+aside svg {
+  width: 2em;
+  height: 2em;
+  stroke: var(--color-4);
+}
+
+aside svg:hover {
+  stroke: var(--color-1);
+}
+
+aside svg:focus-within {
+  outline: var(--color-4) 2px solid;
+  outline-offset: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+:root[data-theme="light"] #sun {
+  display: none;
+}
+
+:root[data-theme="dark"] #moon {
+  display: none;
+}
+
+#lang-switcher svg {
+  stroke: none;
+  fill: var(--color-4);
+}
+
+:root[lang="pt-BR"] #pt {
+  display: none;
+}
+
+:root[lang="en-US"] #en {
+  display: none;
+}

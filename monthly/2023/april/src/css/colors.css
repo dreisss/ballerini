@@ -1,0 +1,21 @@
+:root[data-theme="dark"] {
+  --color-1: #f4f4f5;
+  --color-2: #e4e4e7;
+  --color-3: #a1a1aa;
+  --color-4: #52525b;
+  --color-5: #3f3f46;
+  --color-6: #27272a;
+  --color-7: #18181b;
+  --color-8: #f97316;
+}
+
+:root[data-theme="light"] {
+  --color-1: #18181b;
+  --color-2: #27272a;
+  --color-3: #3f3f46;
+  --color-4: #52525b;
+  --color-5: #a1a1aa;
+  --color-6: #e4e4e7;
+  --color-7: #f4f4f5;
+  --color-8: #f97316;
+}

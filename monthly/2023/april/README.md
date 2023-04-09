@@ -11,6 +11,9 @@ Figma: \
 Live: \
 [:link:](https://dreisss.github.io/challenges-ballerini/monthly/2023/april)
 
+Ferramentas Utilizadas: \
+`HTML`, `CSS`, `JavaScript`, `Discord API`
+
 <div align="right">
 
 [**_`❰ Retornar para página anterior`_**][previous]

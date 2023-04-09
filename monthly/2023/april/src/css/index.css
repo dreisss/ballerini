@@ -1,26 +1,8 @@
-aside {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-}
-
-aside svg {
-  width: 2em;
-  height: 2em;
-  transition: stroke 250ms ease-in-out;
-  stroke: var(--gray-light);
-}
-
-aside:hover svg {
-  stroke: var(--white);
-}
-
 body {
   display: grid;
   place-items: center;
   height: 100vh;
-  padding: 1rem !important;
-  box-sizing: border-box;
+  padding: 1rem;
 }
 
 main {
@@ -30,14 +12,12 @@ main {
   align-items: center;
 }
 
-#emoji-figure > span {
-  display: inline-block;
-  max-height: 4rem;
-  font-size: 4rem;
-  line-height: 1;
+main figure {
+  width: 4rem;
+  height: 4rem;
 }
 
-#main-text {
+main > hgroup {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -45,42 +25,43 @@ main {
   text-align: center;
 }
 
-#main-text h1 {
-  font-weight: 700;
-  color: var(--white);
-}
-
-#main-text h2 {
-  font-weight: 400;
-  color: var(--gray-light);
-}
-
-#main {
+main label {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 35rem;
   border-radius: 0.5rem;
-  background-color: var(--gray-darker);
+  background-color: var(--color-6);
 }
 
-form {
+main label:focus-within {
+  outline: var(--color-6) 2px solid;
+  outline-offset: 0.5rem;
+}
+
+:root[data-theme="light"] main label {
+  --color-4: var(--color-5);
+  --color-2: var(--color-3);
+}
+
+main label form {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.5rem !important;
+  padding: 1rem 1.5rem;
 }
 
-input {
+main label form input {
   width: 100%;
   font-size: 1.25rem;
   font-weight: 500;
   border: none;
   background-color: transparent;
-  color: var(--gray);
+  color: var(--color-4);
+  font-family: "Roboto", sans-serif;
 }
 
-:is(form:focus-within ~ #results, #results:hover) {
+:is(form:focus-within ~ #results, #results:is(:hover, :focus-within)) {
   max-height: 38.329vh;
 }
 
@@ -97,7 +78,7 @@ input {
 #results::before {
   content: "";
   padding: 1px;
-  background-color: var(--gray-dark);
+  background-color: var(--color-5);
   margin: 0.125rem 0;
 }
 
