@@ -35,6 +35,10 @@ aside svg:focus-within {
   fill: var(--color-4);
 }
 
+#lang-switcher svg:hover {
+  fill: var(--color-1);
+}
+
 :root[lang="pt-BR"] #pt {
   display: none;
 }
