@@ -6,7 +6,7 @@ Desafio: \
 **Escreva uma função para encontrar o maior número em uma lista de números**
 
 Solução: \
-[**Solução**](./solution.rb)
+[**Solução**](./solution.cr)
 
 <div align="right">
 

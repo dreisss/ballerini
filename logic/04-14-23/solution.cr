@@ -1,15 +1,15 @@
-#!/bin/env ruby
+#!/bin/env crystal
 
-def greatest_simplest(numbers)
+def greatest_simplest(numbers : Array(Int32)) : Int32
   numbers.max
 end
 
-def greatest_sort(numbers)
+def greatest_sort(numbers : Array(Int32)) : Int32
   numbers.sort.last
 end
 
-def greatest_classic(numbers)
-  greatest = 0
+def greatest_classic(numbers : Array(Int32)) : Int32
+  greatest : Int32 = 0
   
   numbers.each do |current|
     greatest = current > greatest ? current : greatest
@@ -18,7 +18,8 @@ def greatest_classic(numbers)
   greatest
 end
 
-numbers = [8, 1, 4, 0, 3, 5, 2, 14, 33, 5, 7]
+print "Digite uma lista de números separados por espaços: "
+numbers : Array(Int32) = gets.not_nil!.chomp.split(" ").map { |c| c.to_i32 }
 
 puts "O maio número da lista é #{greatest_simplest(numbers)}."
 puts "O maio número da lista é #{greatest_sort(numbers)}."

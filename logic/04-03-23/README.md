@@ -6,7 +6,7 @@ Desafio: \
 **Escreva um algoritmo para encontrar o número de ocorrências de um determinado caractere em uma string**
 
 Solução: \
-[**Solução**](./solution.rb)
+[**Solução**](./solution.cr)
 
 <div align="right">
 
