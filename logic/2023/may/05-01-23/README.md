@@ -1,4 +1,4 @@
-[previous]: ../
+[previous]: ../../../
 
 # [**_`Desafio de Lógica: 01/05/2023`_**](#desafio-de-lógica-01052023)
 
