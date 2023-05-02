@@ -6,7 +6,8 @@ Desafio: \
 **Escreva uma função para verificar se uma lista contém um determinado valor numérico**
 
 Solução: \
-[**Solução**](./solution.rb)
+| [**Ruby**](./solution.rb)
+| [**BQN**](./solution.bqn) |
 
 <div align="right">
 
