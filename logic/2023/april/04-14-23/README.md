@@ -6,7 +6,8 @@ Desafio: \
 **Escreva uma função para encontrar o maior número em uma lista de números**
 
 Solução: \
-[**Solução**](./solution.cr)
+| [**Crystal**](./solution.cr)
+| [**BQN**](./solution.bqn) |
 
 <div align="right">
 
