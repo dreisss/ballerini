@@ -6,7 +6,8 @@ Desafio: \
 **Escreva uma função para inverter uma string**
 
 Solução: \
-[**Solução**](./solution.rb)
+| [**Ruby**](./solution.rb)
+| [**BQN**](./solution.bqn) |
 
 <div align="right">
 
