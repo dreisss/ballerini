@@ -1,7 +1,7 @@
 #!/bin/env bqn
 
-IsPalidrome ← ≡⟜⌽
+IsPalidrome1 ← ≡⟜⌽ # Reverse phrase and compares with original
 
 phrase ← "roma é amor"
 
-•Show (IsPalidrome phrase)
+•Show (IsPalidrome1 phrase)

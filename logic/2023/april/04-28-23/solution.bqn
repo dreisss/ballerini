@@ -1,7 +1,7 @@
 #!/bin/env bqn
 
-Invert ← ⌽
+Invert ← ⌽ # Built-in function to invert lists
 
 phrase ← "Frase de Teste!"
 
-•Out (Invert phrase)
+•Show (Invert phrase)
