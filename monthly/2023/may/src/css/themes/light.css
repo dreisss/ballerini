@@ -1,0 +1,77 @@
+body.light ::selection {
+  --background-color: var(--zinc-200);
+  --color: var(--zinc-800);
+}
+
+body.light :focus-visible {
+  --outline-color: var(--zinc-400);
+}
+
+body.light {
+  --background-color: var(--zinc-50);
+}
+
+body.light h1 {
+  --color: var(--zinc-800);
+}
+
+body.light h2 {
+  --color: var(--zinc-500);
+}
+
+body.light h3 {
+  --color: var(--zinc-600);
+}
+
+body.light h4 {
+  --color: var(--zinc-500);
+}
+
+body.light h5 {
+  --color: var(--zinc-500);
+}
+
+body.light h6 {
+  --color: var(--zinc-400);
+}
+
+body.light #header .btn {
+  --background-color: var(--zinc-100);
+  --color: var(--zinc-400);
+}
+
+body.light #header .btn:hover {
+  --hover-background-color: var(--zinc-200);
+  --hover-color: var(--zinc-500);
+}
+
+body.light section {
+  --border-color: var(--zinc-200);
+}
+
+body.light section header {
+  --border-color: var(--zinc-200);
+}
+
+body.light section header > :last-child {
+  --background-color: var(--zinc-100);
+}
+
+body.light #left details button {
+  --background-color: var(--zinc-100);
+  --color: var(--zinc-400);
+}
+
+body.light #left details button:nth-child(2) {
+  --background-color: var(--zinc-200);
+}
+
+body.light input[type="checkbox"] {
+  --border-color: var(--zinc-200);
+  --background-color: var(--zinc-100);
+}
+
+body.light input[type="text"] {
+  --background-color: var(--zinc-100);
+  --color: var(--zinc-400);
+}

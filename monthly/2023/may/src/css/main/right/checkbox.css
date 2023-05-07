@@ -1,0 +1,27 @@
+#right input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--background-color);
+  cursor: pointer;
+  position: relative;
+  transition: background-color var(--animation), border-color var(--animation);
+}
+
+#right input[type="checkbox"]:checked {
+  background-color: rgb(var(--lime-500));
+  border-color: rgb(var(--lime-500));
+}
+
+#right input[type="checkbox"]:checked::after {
+  content: "\ea30";
+  font-family: "Phosphor-Bold";
+  color: #ffffff;
+}
+
+#right input[type="checkbox"]:active {
+  animation: push-button var(--animation);
+}

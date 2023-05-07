@@ -1,0 +1,30 @@
+#left .badge {
+  width: min-content;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgb(var(--color));
+  border-radius: 0.25rem;
+  background-color: rgba(var(--color), 10%);
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(var(--color));
+}
+
+#left .badge :first-child {
+  height: 1rem;
+  font-size: 16px;
+}
+
+#left .badge.focus {
+  --color: var(--lime-500);
+}
+
+#left .badge.short-break {
+  --color: var(--amber-500);
+}
+
+#left .badge.long-break {
+  --color: var(--cyan-500);
+}

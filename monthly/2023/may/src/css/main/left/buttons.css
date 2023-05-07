@@ -1,0 +1,38 @@
+#left details button {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 32px;
+  background-color: var(--background-color);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color var(--animation), color var(--animation);
+}
+
+#left details button:hover {
+  background-color: rgb(var(--lime-600));
+  color: #ffffff;
+}
+
+#left details button:active {
+  animation: push-button var(--animation);
+}
+
+#left details button:nth-child(2) {
+  font-size: 48px;
+}
+
+#left details button:nth-child(2):hover {
+  background-color: rgb(var(--lime-500));
+}
+
+#left summary {
+  display: flex;
+  border-radius: 100%;
+  transition: filter var(--animation);
+}
+
+#left summary:is(:hover, :focus-visible),
+#left details div:is(:hover, :focus-within) ~ summary {
+  filter: blur(4px);
+}

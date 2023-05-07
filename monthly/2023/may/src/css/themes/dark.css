@@ -1,0 +1,77 @@
+body.dark ::selection {
+  --background-color: var(--zinc-400);
+  --color: var(--zinc-700);
+}
+
+body.dark :focus-visible {
+  --outline-color: var(--zinc-600);
+}
+
+body.dark {
+  --background-color: var(--zinc-900);
+}
+
+body.dark h1 {
+  --color: var(--zinc-200);
+}
+
+body.dark h2 {
+  --color: var(--zinc-400);
+}
+
+body.dark h3 {
+  --color: var(--zinc-400);
+}
+
+body.dark h4 {
+  --color: var(--zinc-500);
+}
+
+body.dark h5 {
+  --color: var(--zinc-400);
+}
+
+body.dark h6 {
+  --color: var(--zinc-500);
+}
+
+body.dark #header .btn {
+  --background-color: var(--zinc-800);
+  --color: var(--zinc-500);
+}
+
+body.dark #header .btn:hover {
+  --hover-background-color: var(--zinc-700);
+  --hover-color: var(--zinc-400);
+}
+
+body.dark section {
+  --border-color: var(--zinc-800);
+}
+
+body.dark section header {
+  --border-color: var(--zinc-800);
+}
+
+body.dark section header > :last-child {
+  --background-color: var(--zinc-800);
+}
+
+body.dark #left details button {
+  --background-color: var(--zinc-700);
+  --color: var(--zinc-400);
+}
+
+body.dark #left details button:nth-child(2) {
+  --background-color: var(--zinc-600);
+}
+
+body.dark input[type="checkbox"] {
+  --border-color: var(--zinc-700);
+  --background-color: var(--zinc-800);
+}
+
+body.dark input[type="text"] {
+  --background-color: var(--zinc-800);
+  --color: var(--zinc-600);
+}

@@ -1,0 +1,14 @@
+#right button[type="submit"] {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  background-color: rgb(var(--lime-500));
+  color: var(--zinc-50);
+  cursor: pointer;
+}
+
+#right button[type="submit"]:active {
+  animation: push-button var(--animation);
+}

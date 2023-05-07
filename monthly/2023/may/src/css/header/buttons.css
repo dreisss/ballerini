@@ -1,0 +1,18 @@
+#header .btn {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--background-color);
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color var(--animation), color var(--animation);
+}
+
+#header .btn:hover {
+  background-color: var(--hover-background-color);
+  color: var(--hover-color);
+}
+
+#header .btn:active {
+  animation: push-button var(--animation);
+}

@@ -1,0 +1,8 @@
+#header {
+  margin-bottom: 3rem;
+}
+
+#header nav {
+  display: flex;
+  gap: 0.5rem;
+}

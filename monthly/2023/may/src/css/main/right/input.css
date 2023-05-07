@@ -1,0 +1,10 @@
+#right input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5rem;
+  background-color: var(--background-color);
+  color: var(--color);
+}
