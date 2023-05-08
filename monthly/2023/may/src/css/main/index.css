@@ -1,11 +1,12 @@
 main {
+  max-height: calc(100% - 7.8375rem);
   height: 100%;
   display: flex;
   gap: 2.25rem;
 }
 
 section {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;

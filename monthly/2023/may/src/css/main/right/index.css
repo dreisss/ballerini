@@ -1,5 +1,8 @@
 #right ul {
+  height: 100%;
   gap: 1rem;
+  margin-bottom: 1.5rem;
+  overflow-y: auto;
 }
 
 #right li {
@@ -10,6 +13,7 @@
   font-weight: 500;
   line-height: 1.5rem;
   color: var(--zinc-500);
+  overflow-wrap: anywhere;
 }
 
 #right form {

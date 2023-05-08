@@ -1,6 +1,7 @@
 #right input[type="checkbox"] {
   width: 1.25rem;
   height: 1.25rem;
+  aspect-ratio: 1;
   display: grid;
   place-content: center;
   border: 1px solid var(--border-color);
@@ -8,10 +9,10 @@
   background-color: var(--background-color);
   cursor: pointer;
   position: relative;
-  transition: background-color var(--animation), border-color var(--animation);
 }
 
 #right input[type="checkbox"]:checked {
+  transition: background-color var(--animation), border-color var(--animation);
   background-color: rgb(var(--lime-500));
   border-color: rgb(var(--lime-500));
 }
