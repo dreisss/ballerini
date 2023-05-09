@@ -7,13 +7,8 @@ document.addEventListener("alpine:init", () => {
     is_dark: Alpine.$persist(true),
 
     init() {
-      if (this.is_dark) {
-        document.body.classList.add("dark");
-        document.body.classList.remove("light");
-      } else {
-        document.body.classList.add("light");
-        document.body.classList.remove("dark");
-      }
+      document.body.classList.add(this.is_dark ? "dark" : "light");
+      document.body.classList.remove(this.is_dark ? "light" : "dark");
     },
 
     toggle() {
@@ -52,6 +47,22 @@ document.addEventListener("alpine:init", () => {
 
     clear() {
       this.list = [];
+    },
+  }));
+
+  Alpine.data("timer", () => ({
+    open: false,
+
+    show() {
+      this.open = true;
+    },
+
+    hide() {
+      this.$el.classList.add("closing");
+      setTimeout(() => {
+        this.open = false;
+        this.$el.classList.remove("closing");
+      }, 250);
     },
   }));
 });

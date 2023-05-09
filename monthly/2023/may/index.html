@@ -27,6 +27,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./src/css/index.css" />
+    <link rel="stylesheet" href="./src/css/responsiveness.css" />
     <link rel="stylesheet" href="./src/css/animations.css" />
 
     <link rel="stylesheet" href="./src/css/themes/dark.css" />
@@ -105,8 +106,8 @@
           </li>
         </ul>
 
-        <footer>
-          <details x-data="{ open: false }" :open="open" @mouseenter="open = true" @mouseleave="open = false">
+        <footer x-data="timer">
+          <details :open="open" @mouseenter="show" @mouseleave="hide">
             <div>
               <button><i class="ph ph-gear"></i></button>
               <button><i class="ph ph-play"></i></button>
@@ -131,7 +132,7 @@
             </summary>
           </details>
 
-          <div>
+          <div x-show="false">
             <hgroup>
               <h1 x-data x-text="$t('congratulations')"></h1>
               <h2 x-data x-text="$t('congratulations_subtitle')"></h2>
@@ -159,6 +160,8 @@
               <span x-text="todo.text"></span>
             </li>
           </template>
+
+          <h4 id="todolist_empty" x-text="$t('todolist_empty')" x-show="!list.length"></h4>
         </ul>
 
         <footer>

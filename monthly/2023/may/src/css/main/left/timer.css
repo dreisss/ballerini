@@ -1,5 +1,6 @@
 #left svg {
   height: 100%;
+  max-height: 14rem;
 }
 
 #left details {
@@ -9,6 +10,7 @@
 
 #left details summary {
   height: 100%;
+  align-items: end;
 }
 
 #left details div {
@@ -19,4 +21,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+#left details[open] div {
+  animation: fade-in var(--animation);
+}
+
+#left details.closing div {
+  animation: fade-out var(--animation);
 }

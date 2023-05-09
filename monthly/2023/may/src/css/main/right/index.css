@@ -1,8 +1,17 @@
 #right ul {
+  position: relative;
   height: 100%;
   gap: 1rem;
   margin-bottom: 1.5rem;
   overflow-y: auto;
+}
+
+#right #todolist_empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  white-space: nowrap;
 }
 
 #right li {

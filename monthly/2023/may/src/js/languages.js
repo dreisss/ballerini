@@ -22,6 +22,7 @@ const translations = {
 
     todolist: "Lista de tarefas",
     todolist_subtitle: "Seus objetivos para essa sessão",
+    todolist_empty: "Ainda não há nenhuma tarefa",
     todo_add: "Adicionar",
     todo_clear: "Limpar",
     todo_placeholder: "Nova tarefa",
@@ -50,6 +51,7 @@ const translations = {
 
     todolist: "To-do list",
     todolist_subtitle: "Your goals for this session",
+    todolist_empty: "There is no task yet",
     todo_add: "Add",
     todo_clear: "Clear",
     todo_placeholder: "New task",
