@@ -3,6 +3,39 @@
   max-height: 14rem;
 }
 
+#left svg #background {
+  stroke: var(--stroke);
+}
+
+#left svg ellipse {
+  stroke-width: 15px;
+  stroke-linecap: round;
+  stroke-dasharray: 656px;
+  transform: rotate(-90deg) translateX(-100%);
+  transition: stroke-dashoffset 1s linear;
+}
+
+#left svg.focus #progress {
+  stroke: #84cc16;
+}
+
+#left svg.short-break #progress {
+  stroke: #f59e0b;
+}
+
+#left svg.long-break #progress {
+  stroke: #06b6d4;
+}
+
+#left svg text {
+  dominant-baseline: middle;
+  text-anchor: middle;
+  font-size: 64px;
+  font-weight: 600;
+  font-family: "Rajdhani", sans-serif;
+  fill: var(--fill);
+}
+
 #left details {
   position: relative;
   height: 100%;
@@ -11,6 +44,10 @@
 #left details summary {
   height: 100%;
   align-items: end;
+}
+
+#left details summary:focus-visible {
+  outline: none;
 }
 
 #left details div {

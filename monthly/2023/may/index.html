@@ -23,7 +23,7 @@
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="./src/css/index.css" />
@@ -50,9 +50,9 @@
 
   <body class="dark">
     <header id="header">
-      <hgroup>
-        <h1 x-data x-text="$t('title')"></h1>
-        <h2 x-data x-text="$t('subtitle')"></h2>
+      <hgroup x-data>
+        <h1 x-text="$t('title')"></h1>
+        <h2 x-text="$t('subtitle')"></h2>
       </hgroup>
 
       <nav>
@@ -71,11 +71,11 @@
     </header>
 
     <main>
-      <section id="left">
+      <section id="left" x-data="app">
         <header>
           <hgroup>
-            <h3 x-data x-text="$t('session')"></h3>
-            <h4 x-data x-text="$t('session_subtitle')"></h4>
+            <h3 x-text="$t('session')"></h3>
+            <h4 x-text="$t('session_subtitle')"></h4>
           </hgroup>
 
           <span>⏳</span>
@@ -84,61 +84,76 @@
         <ul>
           <li>
             <hgroup>
-              <h5 x-data x-text="$t('mode')"></h5>
-              <h6 x-data x-text="$t('mode_subtitle')"></h6>
+              <h5 x-text="$t('mode')"></h5>
+              <h6 x-text="$t('mode_subtitle')"></h6>
             </hgroup>
 
-            <span class="badge focus">
+            <span class="badge focus" x-show="queue[state % 8] == 'focus'">
               <i class="ph ph-brain"></i>
-              <span x-data x-text="$t('focus')"></span>
+              <span x-text="$t('focus')"></span>
+            </span>
+
+            <span class="badge short-break" x-show="queue[state % 8] == 'short-break'">
+              <i class="ph ph-coffee"></i>
+              <span x-text="$t('short_break')"></span>
+            </span>
+
+            <span class="badge long-break" x-show="queue[state % 8] == 'long-break'">
+              <i class="ph ph-coffee"></i>
+              <span x-text="$t('long_break')"></span>
             </span>
           </li>
+
           <li>
             <hgroup>
-              <h5 x-data x-text="$t('next_mode')"></h5>
-              <h6 x-data x-text="$t('next_mode_subtitle')"></h6>
+              <h5 x-text="$t('next_mode')"></h5>
+              <h6 x-text="$t('next_mode_subtitle')"></h6>
             </hgroup>
 
-            <span class="badge long-break">
+            <span class="badge focus" x-show="queue[(state + 1) % 8] == 'focus'">
+              <i class="ph ph-brain"></i>
+              <span x-text="$t('focus')"></span>
+            </span>
+
+            <span class="badge short-break" x-show="queue[(state + 1) % 8] == 'short-break'">
               <i class="ph ph-coffee"></i>
-              <span x-data x-text="$t('long_break')"></span>
+              <span x-text="$t('short_break')"></span>
+            </span>
+
+            <span class="badge long-break" x-show="queue[(state + 1) % 8] == 'long-break'">
+              <i class="ph ph-coffee"></i>
+              <span x-text="$t('long_break')"></span>
             </span>
           </li>
         </ul>
 
         <footer x-data="timer">
-          <details :open="open" @mouseenter="show" @mouseleave="hide">
+          <details @mouseenter="show" @mouseleave="hide" :open="open">
             <div>
-              <button><i class="ph ph-gear"></i></button>
-              <button><i class="ph ph-play"></i></button>
-              <button><i class="ph ph-clock-clockwise"></i></button>
+              <button :disabled="finished"><i class="ph ph-gear"></i></button>
+              <button x-show="!running" :disabled="finished"><i class="ph ph-play"></i></button>
+              <button x-show="running" :disabled="finished"><i class="ph ph-pause"></i></button>
+              <button :disabled="finished"><i class="ph ph-clock-clockwise"></i></button>
             </div>
 
-            <summary @click.prevent="">
-              <svg width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M224 112C224 173.856 173.856 224 112 224C50.1441 224 0 173.856 0 112C0 50.1441 50.1441 0 112 0C173.856 0 224 50.1441 224 112ZM13.44 112C13.44 166.433 57.5668 210.56 112 210.56C166.433 210.56 210.56 166.433 210.56 112C210.56 57.5668 166.433 13.44 112 13.44C57.5668 13.44 13.44 57.5668 13.44 112Z"
-                  fill="#27272A"
-                />
-                <path
-                  d="M112 6.72C112 3.00865 115.012 -0.0210115 118.716 0.201523C137.026 1.30134 154.822 6.88467 170.52 16.5043C188.131 27.2967 202.415 42.7491 211.793 61.1531C221.17 79.5571 225.275 100.196 223.655 120.787C222.21 139.141 216.267 156.821 206.395 172.28C204.397 175.408 200.176 176.064 197.173 173.882C194.171 171.701 193.527 167.509 195.498 164.365C203.928 150.924 209.006 135.616 210.256 119.733C211.682 101.612 208.07 83.4502 199.818 67.2547C191.566 51.0592 178.996 37.4611 163.497 27.9638C149.913 19.6395 134.544 14.7498 118.715 13.669C115.012 13.4161 112 10.4314 112 6.72Z"
-                  fill="#06B6D4"
-                />
-                <path
-                  d="M53.296 123.96H57.072C58.4373 123.96 59.3973 123.683 59.952 123.128C60.5067 122.531 60.784 121.549 60.784 120.184V100.664C60.784 99.2987 60.5067 98.3387 59.952 97.784C59.3973 97.1867 58.4373 96.888 57.072 96.888H53.296C51.9307 96.888 50.9707 97.1867 50.416 97.784C49.8613 98.3387 49.584 99.2987 49.584 100.664V120.184C49.584 121.549 49.8613 122.531 50.416 123.128C50.9707 123.683 51.9307 123.96 53.296 123.96ZM58.352 131H51.952C48.5813 131 45.9787 130.104 44.144 128.312C42.3093 126.52 41.392 123.939 41.392 120.568V100.28C41.392 96.9093 42.3093 94.328 44.144 92.536C45.9787 90.744 48.5813 89.848 51.952 89.848H58.352C61.68 89.848 64.2613 90.7653 66.096 92.6C67.9307 94.392 68.848 96.952 68.848 100.28V120.568C68.848 123.896 67.9307 126.477 66.096 128.312C64.2613 130.104 61.68 131 58.352 131ZM75.3205 129.656V123.576C75.3205 121.144 76.3658 119.075 78.4565 117.368L90.2325 107.384C92.1525 105.805 93.1125 104.099 93.1125 102.264V100.344C93.1125 99.0213 92.7925 98.0827 92.1525 97.528C91.5552 96.9307 90.5525 96.632 89.1445 96.632H86.9045C85.5392 96.632 84.5792 96.9307 84.0245 97.528C83.4698 98.0827 83.1925 99.0213 83.1925 100.344V102.392C83.1925 103.331 82.7445 103.8 81.8485 103.8H76.4085C75.5125 103.8 75.0645 103.331 75.0645 102.392V100.216C75.0645 96.888 75.9818 94.328 77.8165 92.536C79.6512 90.744 82.2538 89.848 85.6245 89.848H90.4885C93.8592 89.848 96.4618 90.744 98.2965 92.536C100.131 94.328 101.049 96.888 101.049 100.216V102.776C101.049 106.104 99.7685 108.856 97.2085 111.032L85.1765 121.272C84.6645 121.741 84.4085 122.253 84.4085 122.808V123.832H99.7045C100.601 123.832 101.049 124.28 101.049 125.176V129.656C101.049 130.552 100.601 131 99.7045 131H76.6645C75.7685 131 75.3205 130.552 75.3205 129.656ZM114.499 99.576V107.448C114.499 108.344 114.094 108.792 113.283 108.792H107.587C106.734 108.792 106.307 108.301 106.307 107.32V99.64C106.307 98.7867 106.734 98.36 107.587 98.36H113.283C114.094 98.36 114.499 98.7653 114.499 99.576ZM114.499 121.784V129.656C114.499 130.552 114.094 131 113.283 131H107.587C106.734 131 106.307 130.531 106.307 129.592V121.848C106.307 120.995 106.734 120.568 107.587 120.568H113.283C114.094 120.568 114.499 120.973 114.499 121.784ZM137.29 116.472V96.696L126.922 116.472H137.29ZM143.626 131H138.634C137.738 131 137.29 130.552 137.29 129.656V123.512H121.418C120.692 123.512 120.116 123.299 119.69 122.872C119.263 122.445 119.049 121.869 119.049 121.144V118.648C119.049 117.368 119.263 116.323 119.69 115.512L132.426 91.832C132.852 91.064 133.236 90.552 133.578 90.296C133.962 89.9973 134.516 89.848 135.242 89.848H142.474C143.199 89.848 143.775 90.0613 144.202 90.488C144.671 90.9147 144.906 91.4907 144.906 92.216V116.472H149.514C150.367 116.472 150.794 116.899 150.794 117.752V122.04C150.794 123.021 150.367 123.512 149.514 123.512H144.906V129.656C144.906 130.168 144.799 130.531 144.586 130.744C144.415 130.915 144.095 131 143.626 131ZM166.859 123.96H170.635C172 123.96 172.96 123.683 173.515 123.128C174.069 122.531 174.347 121.549 174.347 120.184V100.664C174.347 99.2987 174.069 98.3387 173.515 97.784C172.96 97.1867 172 96.888 170.635 96.888H166.859C165.493 96.888 164.533 97.1867 163.979 97.784C163.424 98.3387 163.147 99.2987 163.147 100.664V120.184C163.147 121.549 163.424 122.531 163.979 123.128C164.533 123.683 165.493 123.96 166.859 123.96ZM171.915 131H165.515C162.144 131 159.541 130.104 157.707 128.312C155.872 126.52 154.955 123.939 154.955 120.568V100.28C154.955 96.9093 155.872 94.328 157.707 92.536C159.541 90.744 162.144 89.848 165.515 89.848H171.915C175.243 89.848 177.824 90.7653 179.659 92.6C181.493 94.392 182.411 96.952 182.411 100.28V120.568C182.411 123.896 181.493 126.477 179.659 128.312C177.824 130.104 175.243 131 171.915 131Z"
-                  fill="#F4F4F5"
-                />
+            <summary @click.prevent="" @focus="show">
+              <svg :class="queue[state]" width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse id="background" cx="112" cy="112" rx="104.5" ry="104.5" stroke="#27272A"></ellipse>
+                <ellipse id="progress" x-show="running" :stroke-dashoffset="656 * ( 1 - counter/mode_time[state])" cx="112" cy="112" rx="104.5" ry="104.5"></ellipse>
+                <text x-text="`${minutes}:${seconds}`" x="50%" y="50%"></text>
               </svg>
             </summary>
           </details>
 
-          <div x-show="false">
+          <div x-show="true">
             <hgroup>
-              <h1 x-data x-text="$t('congratulations')"></h1>
-              <h2 x-data x-text="$t('congratulations_subtitle')"></h2>
+              <h1 x-text="$t('congratulations')"></h1>
+              <h2 x-text="$t('congratulations_subtitle')"></h2>
             </hgroup>
 
-            <button class="start-focus" x-data x-text="$t('start_focus')"></button>
+            <button x-show="queue[(state + 1) % 8] == 'focus'" x-text="$t('start_focus')" class="start-focus"></button>
+            <button x-show="queue[(state + 1) % 8] == 'short-break'" x-text="$t('start_short_break')" class="start-short-break"></button>
+            <button x-show="queue[(state + 1) % 8] == 'long-break'" x-text="$t('start_long_break')" class="start-long-break"></button>
           </div>
         </footer>
       </section>

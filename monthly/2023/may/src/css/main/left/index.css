@@ -47,12 +47,24 @@
 #left footer > :last-child button {
   padding: 0.75rem;
   border-radius: 0.25rem;
-  background-color: rgb(var(--lime-500));
+  background-color: var(--background-color);
   line-height: 160%;
   font-size: 16px;
   font-weight: 600;
   color: var(--zinc-50);
   cursor: pointer;
+}
+
+#left footer > :last-child button.start-focus {
+  --background-color: rgb(var(--lime-500));
+}
+
+#left footer > :last-child button.start-short-break {
+  --background-color: rgb(var(--amber-500));
+}
+
+#left footer > :last-child button.start-long-break {
+  --background-color: rgb(var(--cyan-500));
 }
 
 #left footer > :last-child button:active {

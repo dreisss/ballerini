@@ -57,6 +57,14 @@ body.light section header > :last-child {
   --background-color: var(--zinc-100);
 }
 
+body.light #left svg #background {
+  --stroke: var(--zinc-100);
+}
+
+body.light #left svg text {
+  --fill: var(--zinc-600);
+}
+
 body.light #left details button {
   --background-color: var(--zinc-100);
   --color: var(--zinc-400);
