@@ -34,14 +34,14 @@
   white-space: nowrap;
   font-size: 32px;
   font-weight: 700;
-  color: var(--zinc-100);
+  color: var(--color);
 }
 
 #left footer h2 {
   line-height: 160%;
   font-size: 16px;
   font-weight: 400;
-  color: var(--zinc-500);
+  color: var(--color);
 }
 
 #left footer > :last-child button {

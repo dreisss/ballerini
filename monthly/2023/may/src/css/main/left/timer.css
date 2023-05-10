@@ -5,6 +5,7 @@
 
 #left svg #background {
   stroke: var(--stroke);
+  transition: stroke var(--animation);
 }
 
 #left svg ellipse {
@@ -34,6 +35,7 @@
   font-weight: 600;
   font-family: "Rajdhani", sans-serif;
   fill: var(--fill);
+  transition: fill var(--animation);
 }
 
 #left details {

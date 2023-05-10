@@ -1,3 +1,18 @@
+function language_init() {
+  Alpine.data("language", () => ({
+    pt: Alpine.$persist(true),
+
+    init() {
+      AlpineI18n.locale = this.pt ? "pt" : "en";
+    },
+
+    toggle() {
+      this.pt = !this.pt;
+      AlpineI18n.locale = this.pt ? "pt" : "en";
+    },
+  }));
+}
+
 const translations = {
   pt: {
     title: "Pomodoro",

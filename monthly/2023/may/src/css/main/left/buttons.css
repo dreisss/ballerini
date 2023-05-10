@@ -18,11 +18,11 @@
   animation: push-button var(--animation);
 }
 
-#left details button:nth-child(2) {
+#left details button.main {
   font-size: 48px;
 }
 
-#left details button:nth-child(2):hover {
+#left details button.main:hover {
   background-color: rgb(var(--lime-500));
 }
 

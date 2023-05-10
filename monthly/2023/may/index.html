@@ -13,7 +13,7 @@
     <!-- Alpine.js -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
-    <script async src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Phosphor Icons -->
@@ -57,7 +57,8 @@
 
       <nav>
         <button x-data="theme" @click="toggle" class="btn">
-          <i class="ph ph-sun-dim"></i>
+          <i x-show="dark" class="ph ph-sun-dim"></i>
+          <i x-show="!dark" class="ph ph-moon"></i>
         </button>
 
         <a class="btn" href="https://github.com/dreisss/challenges-ballerini/tree/main/monthly/2023/may" target="_blank">
@@ -71,7 +72,7 @@
     </header>
 
     <main>
-      <section id="left" x-data="app">
+      <section x-data="app" id="left">
         <header>
           <hgroup>
             <h3 x-text="$t('session')"></h3>
@@ -88,17 +89,17 @@
               <h6 x-text="$t('mode_subtitle')"></h6>
             </hgroup>
 
-            <span class="badge focus" x-show="queue[state % 8] == 'focus'">
+            <span x-show="current(state) == 'focus'" class="badge focus">
               <i class="ph ph-brain"></i>
               <span x-text="$t('focus')"></span>
             </span>
 
-            <span class="badge short-break" x-show="queue[state % 8] == 'short-break'">
+            <span x-show="current(state) == 'short-break'" class="badge short-break">
               <i class="ph ph-coffee"></i>
               <span x-text="$t('short_break')"></span>
             </span>
 
-            <span class="badge long-break" x-show="queue[state % 8] == 'long-break'">
+            <span x-show="current(state) == 'long-break'" class="badge long-break">
               <i class="ph ph-coffee"></i>
               <span x-text="$t('long_break')"></span>
             </span>
@@ -110,17 +111,17 @@
               <h6 x-text="$t('next_mode_subtitle')"></h6>
             </hgroup>
 
-            <span class="badge focus" x-show="queue[(state + 1) % 8] == 'focus'">
+            <span x-show="next(state) == 'focus'" class="badge focus">
               <i class="ph ph-brain"></i>
               <span x-text="$t('focus')"></span>
             </span>
 
-            <span class="badge short-break" x-show="queue[(state + 1) % 8] == 'short-break'">
+            <span x-show="next(state) == 'short-break'" class="badge short-break">
               <i class="ph ph-coffee"></i>
               <span x-text="$t('short_break')"></span>
             </span>
 
-            <span class="badge long-break" x-show="queue[(state + 1) % 8] == 'long-break'">
+            <span x-show="next(state) == 'long-break'" class="badge long-break">
               <i class="ph ph-coffee"></i>
               <span x-text="$t('long_break')"></span>
             </span>
@@ -128,19 +129,30 @@
         </ul>
 
         <footer x-data="timer">
-          <details @mouseenter="show" @mouseleave="hide" :open="open">
+          <details x-data="timer_buttons" @mouseenter="show" @mouseleave="hide" :open="open">
             <div>
-              <button :disabled="finished"><i class="ph ph-gear"></i></button>
-              <button x-show="!running" :disabled="finished"><i class="ph ph-play"></i></button>
-              <button x-show="running" :disabled="finished"><i class="ph ph-pause"></i></button>
-              <button :disabled="finished"><i class="ph ph-clock-clockwise"></i></button>
+              <button>
+                <i class="ph ph-gear"></i>
+              </button>
+
+              <button @click="play" x-show="!running" class="main">
+                <i class="ph ph-play"></i>
+              </button>
+
+              <button @click="pause" x-show="running" class="main">
+                <i class="ph ph-pause"></i>
+              </button>
+
+              <button>
+                <i class="ph ph-clock-clockwise"></i>
+              </button>
             </div>
 
             <summary @click.prevent="" @focus="show">
-              <svg :class="queue[state]" width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg :class="current(state)" width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse id="background" cx="112" cy="112" rx="104.5" ry="104.5" stroke="#27272A"></ellipse>
-                <ellipse id="progress" x-show="running" :stroke-dashoffset="656 * ( 1 - counter/mode_time[state])" cx="112" cy="112" rx="104.5" ry="104.5"></ellipse>
-                <text x-text="`${minutes}:${seconds}`" x="50%" y="50%"></text>
+                <ellipse x-show="running || !!counter" :stroke-dashoffset="progress(counter)" id="progress" cx="112" cy="112" rx="104.5" ry="104.5"></ellipse>
+                <text x-text="`${minutes(counter)}:${seconds(counter)}`" x="50%" y="50%"></text>
               </svg>
             </summary>
           </details>
@@ -151,14 +163,14 @@
               <h2 x-text="$t('congratulations_subtitle')"></h2>
             </hgroup>
 
-            <button x-show="queue[(state + 1) % 8] == 'focus'" x-text="$t('start_focus')" class="start-focus"></button>
-            <button x-show="queue[(state + 1) % 8] == 'short-break'" x-text="$t('start_short_break')" class="start-short-break"></button>
-            <button x-show="queue[(state + 1) % 8] == 'long-break'" x-text="$t('start_long_break')" class="start-long-break"></button>
+            <button x-show="next(state) == 'focus'" x-text="$t('start_focus')" class="start-focus"></button>
+            <button x-show="next(state) == 'short-break'" x-text="$t('start_short_break')" class="start-short-break"></button>
+            <button x-show="next(state) == 'long-break'" x-text="$t('start_long_break')" class="start-long-break"></button>
           </div>
         </footer>
       </section>
 
-      <section id="right" x-data="todo_list">
+      <section id="right" x-data="todolist">
         <header>
           <hgroup>
             <h3 x-text="$t('todolist')"></h3>
@@ -171,7 +183,7 @@
         <ul>
           <template x-for="(todo, index) in list" :key="index">
             <li>
-              <input type="checkbox" :checked="todo.checked"" />
+              <input :checked="todo.checked" type="checkbox" />
               <span x-text="todo.text"></span>
             </li>
           </template>
@@ -182,14 +194,18 @@
         <footer>
           <form @submit.prevent="submit">
             <input type="text" :placeholder="$t('todo_placeholder')" x-model="input" />
-            <button type="submit" x-text="$t('todo_add')"></button>
-            <button type="button" x-text="$t('todo_clear')" x-show="!!list.length" @click="clear"></button>
+            <button x-text="$t('todo_add')" type="submit"></button>
+            <button @click="clear" x-show="!!list.length" x-text="$t('todo_clear')" type="button"></button>
           </form>
         </footer>
       </section>
     </main>
 
-    <script src="./src/js/languages.js"></script>
+    <script src="./src/js/theme.js"></script>
+    <script src="./src/js/language.js"></script>
+    <script src="./src/js/timer.js"></script>
+    <script src="./src/js/todolist.js"></script>
+    <script src="./src/js/app.js"></script>
     <script src="./src/js/index.js"></script>
   </body>
 </html>

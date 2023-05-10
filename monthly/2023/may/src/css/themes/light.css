@@ -70,8 +70,16 @@ body.light #left details button {
   --color: var(--zinc-400);
 }
 
-body.light #left details button:nth-child(2) {
+body.light #left details button.main {
   --background-color: var(--zinc-200);
+}
+
+body.light #left footer h1 {
+  --color: var(--zinc-700);
+}
+
+body.light #left footer h2 {
+  --color: var(--zinc-500);
 }
 
 body.light input[type="checkbox"] {
