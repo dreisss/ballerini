@@ -22,14 +22,14 @@ function timer_init() {
 
   Alpine.data("timer", () => ({
     running: false,
-    counter: 14.5 * 60,
+    counter: 0,
     interval: null,
 
     minutes: (c) => format2digits(Math.trunc(c / 60)),
     seconds: (c) => format2digits(c % 60),
 
     progress(counter) {
-      return 656 * (1 - counter / this.duration[this.state]);
+      return 656 * (1 - counter / this.duration[this.mode % 8]);
     },
 
     play() {
@@ -43,17 +43,21 @@ function timer_init() {
     },
 
     update() {
-      console.log("ok");
-      this.counter += 1;
+      this.counter -= 1;
 
-      if (this.counter == this.duration[this.state]) {
+      if (this.counter == 0) {
         this.end();
       }
     },
 
     end() {
       this.pause();
-      this.counter = 0;
+      this.finished = true;
+      alert(Alpine.$t("time_ended"));
+    },
+
+    restart() {
+      this.counter = this.duration[this.mode % 8];
     },
   }));
 }

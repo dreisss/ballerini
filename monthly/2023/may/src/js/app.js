@@ -4,14 +4,21 @@ function app_init() {
   Alpine.data("app", () => ({
     queue: ["focus", "short-break", "focus", "short-break", "focus", "short-break", "focus", "long-break"],
     duration: [25 * MIN, 5 * MIN, 25 * MIN, 5 * MIN, 25 * MIN, 5 * MIN, 25 * MIN, 15 * MIN],
-    state: 7,
+    mode: 7,
+    finished: true,
 
-    current(state) {
-      return this.queue[state % 8];
+    current(mode) {
+      return this.queue[mode % 8];
     },
 
-    next(state) {
-      return this.queue[(state + 1) % 8];
+    next(mode) {
+      return this.queue[(mode + 1) % 8];
+    },
+
+    nextmode() {
+      this.mode += 1;
+      this.finished = false;
+      this.counter = this.duration[this.mode % 8];
     },
   }));
 }

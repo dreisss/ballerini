@@ -28,6 +28,7 @@ const translations = {
     long_break: "Pausa Longa",
     short_break: "Pausa Curta",
 
+    time_ended: "O tempo do cíclo chegou ao fim!",
     congratulations: "Parabéns! 🎉",
     congratulations_subtitle: "Você chegou no fim de mais um cíclo dessa sessão!",
 
@@ -57,6 +58,7 @@ const translations = {
     long_break: "Long Break",
     short_break: "Short Break",
 
+    time_ended: "Cycle time has come to an end!",
     congratulations: "Congratulations! 🎉",
     congratulations_subtitle: "You have reached the end of another cycle of this session!",
 
