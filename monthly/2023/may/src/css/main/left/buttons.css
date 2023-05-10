@@ -32,7 +32,7 @@
   transition: filter var(--animation);
 }
 
-#left summary:is(:hover, :focus-visible),
+#left summary:is(:hover, :focus-visible):not([finished]),
 #left details div:is(:hover, :focus-within) ~ summary {
   filter: blur(4px);
 }

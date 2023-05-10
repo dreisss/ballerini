@@ -9,13 +9,19 @@
 }
 
 #left footer {
-  height: 100%;
+  margin-top: auto;
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
-  padding: 1.5rem;
-  gap: 2rem;
   overflow: hidden;
+}
+
+#left footer > * {
+  padding: 1.5rem;
+}
+
+#left footer > :last-child {
+  padding-left: 0.5rem;
 }
 
 #left footer > :last-child {
@@ -24,6 +30,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
   overflow-y: scroll;
 }
 

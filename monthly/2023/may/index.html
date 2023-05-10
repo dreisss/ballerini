@@ -129,26 +129,26 @@
         </ul>
 
         <footer x-data="timer">
-          <details x-data="timer_buttons" @mouseenter="show" @mouseleave="hide" :open="open">
+          <details x-data="timer_buttons" @mouseenter="show" @mouseleave="hide" :open="!finished && open">
             <div>
-              <button :disabled="finished">
+              <button>
                 <i class="ph ph-gear"></i>
               </button>
 
-              <button @click="play" x-show="!running" :disabled="finished" class="main">
+              <button @click="play" x-show="!running" class="main">
                 <i class="ph ph-play"></i>
               </button>
 
-              <button @click="pause" x-show="running" :disabled="finished" class="main">
+              <button @click="pause" x-show="running" class="main">
                 <i class="ph ph-pause"></i>
               </button>
 
-              <button @click="restart" :disabled="finished">
+              <button @click="restart">
                 <i class="ph ph-clock-clockwise"></i>
               </button>
             </div>
 
-            <summary @click.prevent="" @focus="show">
+            <summary @click.prevent="" @focus="show" :finished="finished">
               <svg :class="current(mode)" width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse id="background" cx="112" cy="112" rx="104.5" ry="104.5" stroke="#27272A"></ellipse>
                 <ellipse x-show="running || !!counter" :stroke-dashoffset="progress(counter)" id="progress" cx="112" cy="112" rx="104.5" ry="104.5"></ellipse>

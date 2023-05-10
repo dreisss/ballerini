@@ -61,4 +61,12 @@
   h6 {
     font-size: 10.5px;
   }
+
+  #left footer h1 {
+    font-size: 24px !important;
+  }
+
+  #left footer h2 {
+    font-size: 12px !important;
+  }
 }
