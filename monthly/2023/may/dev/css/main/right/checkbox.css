@@ -19,7 +19,7 @@
 
 #right input[type="checkbox"]:checked::after {
   content: "\ea30";
-  font-family: "Phosphor-Bold";
+  font-family: "Phosphor";
   color: #ffffff;
 }
 
