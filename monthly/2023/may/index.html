@@ -10,20 +10,32 @@
     <!-- Favicon Link -->
     <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon" />
 
+    <!-- Preloads -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/" />
+    <link rel="preload" src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js" as="script" />
+    <link rel="preload" src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js" as="script" />
+    <link rel="preload" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" as="script" />
+
+    <link rel="preconnect" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link rel="preload" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" as="style" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@700&text=0123456789&display=swap" as="style" />
+
+    <link rel="preload" href="./src/css/index.min.css" as="style" />
+    <link rel="preload" href="./src/js/index.min.js" as="script" />
+
     <!-- Alpine.js -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Phosphor Icons -->
-    <link rel="preconnect" href="https://unpkg.com" />
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
 
-    <!-- Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />
+    <!-- Inter and Rajdhani font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@700&display=swap" />
 
     <!-- Style -->
     <link rel="stylesheet" href="./src/css/index.min.css" />
@@ -55,14 +67,19 @@
   <body class="dark">
     <header id="header">
       <hgroup x-data>
-        <h1 x-text="$t('title')"></h1>
-        <h2 x-text="$t('subtitle')"></h2>
+        <h1 x-text="$t('title')">Pomodoro</h1>
+        <h2 x-text="$t('subtitle')">Gerencie seu tempo de maneira mágica!</h2>
       </hgroup>
 
       <nav>
         <button x-data="theme" @click="toggle" class="btn" aria-label="Change theme">
-          <i x-show="dark" class="ph ph-sun-dim"></i>
-          <i x-show="!dark" class="ph ph-moon"></i>
+          <template x-if="dark">
+            <i class="ph ph-sun-dim"></i>
+          </template>
+
+          <template x-if="!dark">
+            <i class="ph ph-moon"></i>
+          </template>
         </button>
 
         <a class="btn" href="https://github.com/dreisss/challenges-ballerini/tree/main/monthly/2023/may" target="_blank" aria-label="Go to project repository">
@@ -79,8 +96,8 @@
       <section x-data="app" id="left">
         <header>
           <hgroup>
-            <h3 x-text="$t('session')"></h3>
-            <h4 x-text="$t('session_subtitle')"></h4>
+            <h3 x-text="$t('session')">Dados da sessão</h3>
+            <h4 x-text="$t('session_subtitle')">Acompanhe os dados da sessão atual</h4>
           </hgroup>
 
           <span>⏳</span>
@@ -89,46 +106,58 @@
         <ul>
           <li>
             <hgroup>
-              <h5 x-text="$t('mode')"></h5>
-              <h6 x-text="$t('mode_subtitle')"></h6>
+              <h5 x-text="$t('mode')">Modo atual</h5>
+              <h6 x-text="$t('mode_subtitle')">O modo atual do cronômetro</h6>
             </hgroup>
 
-            <span x-show="current(mode) == 'focus'" class="badge focus">
-              <i class="ph ph-brain"></i>
-              <span x-text="$t('focus')"></span>
-            </span>
+            <template x-if="current(mode) == 'focus'">
+              <span class="badge focus">
+                <i class="ph ph-brain"></i>
+                <span x-text="$t('focus')">Foco</span>
+              </span>
+            </template>
 
-            <span x-show="current(mode) == 'short-break'" class="badge short-break">
-              <i class="ph ph-coffee"></i>
-              <span x-text="$t('short_break')"></span>
-            </span>
+            <template x-if="current(mode) == 'short-break'">
+              <span class="badge short-break">
+                <i class="ph ph-coffee"></i>
+                <span x-text="$t('short_break')">Pausa Curta</span>
+              </span>
+            </template>
 
-            <span x-show="current(mode) == 'long-break'" class="badge long-break">
-              <i class="ph ph-coffee"></i>
-              <span x-text="$t('long_break')"></span>
-            </span>
+            <template x-if="current(mode) == 'long-break'">
+              <span class="badge long-break">
+                <i class="ph ph-coffee"></i>
+                <span x-text="$t('long_break')">Pausa Longa</span>
+              </span>
+            </template>
           </li>
 
           <li>
             <hgroup>
-              <h5 x-text="$t('next_mode')"></h5>
-              <h6 x-text="$t('next_mode_subtitle')"></h6>
+              <h5 x-text="$t('next_mode')">Próximo modo:</h5>
+              <h6 x-text="$t('next_mode_subtitle')">O modo que virá a seguir</h6>
             </hgroup>
 
-            <span x-show="next(mode) == 'focus'" class="badge focus">
-              <i class="ph ph-brain"></i>
-              <span x-text="$t('focus')"></span>
-            </span>
+            <template x-if="next(mode) == 'focus'">
+              <span class="badge focus">
+                <i class="ph ph-brain"></i>
+                <span x-text="$t('focus')">Foco</span>
+              </span>
+            </template>
 
-            <span x-show="next(mode) == 'short-break'" class="badge short-break">
-              <i class="ph ph-coffee"></i>
-              <span x-text="$t('short_break')"></span>
-            </span>
+            <template x-if="next(mode) == 'short-break'">
+              <span class="badge short-break">
+                <i class="ph ph-coffee"></i>
+                <span x-text="$t('short_break')">Pausa Curta</span>
+              </span>
+            </template>
 
-            <span x-show="next(mode) == 'long-break'" class="badge long-break">
-              <i class="ph ph-coffee"></i>
-              <span x-text="$t('long_break')"></span>
-            </span>
+            <template x-if="next(mode) == 'long-break'">
+              <span class="badge long-break">
+                <i class="ph ph-coffee"></i>
+                <span x-text="$t('long_break')">Pausa Longa</span>
+              </span>
+            </template>
           </li>
         </ul>
 
@@ -163,13 +192,21 @@
 
           <div x-show="finished">
             <hgroup>
-              <h1 x-text="$t('congratulations')"></h1>
-              <h2 x-text="$t('congratulations_subtitle')"></h2>
+              <h1 x-text="$t('congratulations')">Parabéns! 🎉</h1>
+              <h2 x-text="$t('congratulations_subtitle')">Você chegou no fim de mais um ciclo dessa sessão!</h2>
             </hgroup>
 
-            <button @click="nextmode" x-show="next(mode) == 'focus'" x-text="$t('start_focus')" class="start-focus" aria-label="Start focus mode"></button>
-            <button @click="nextmode" x-show="next(mode) == 'short-break'" x-text="$t('start_short_break')" class="start-short-break" arial-label="Start short break"></button>
-            <button @click="nextmode" x-show="next(mode) == 'long-break'" x-text="$t('start_long_break')" class="start-long-break" aria-label="Start long break"></button>
+            <template x-if="next(mode) == 'focus'">
+              <button @click="nextmode" x-text="$t('start_focus')" class="start-focus" aria-label="Start focus mode">Iniciar: Foco</button>
+            </template>
+
+            <template x-if="next(mode) == 'short-break'">
+              <button @click="nextmode" x-text="$t('start_short_break')" class="start-short-break" arial-label="Start short break">Iniciar: Pausa Curta</button>
+            </template>
+
+            <template x-if="next(mode) == 'long-break'">
+              <button @click="nextmode" x-text="$t('start_long_break')" class="start-long-break" aria-label="Start long break">Iniciar: Pausa Longa</button>
+            </template>
           </div>
         </footer>
       </section>
@@ -177,8 +214,8 @@
       <section id="right" x-data="todolist">
         <header>
           <hgroup>
-            <h3 x-text="$t('todolist')"></h3>
-            <h4 x-text="$t('todolist_subtitle')"></h4>
+            <h3 x-text="$t('todolist')">Lista de tarefas</h3>
+            <h4 x-text="$t('todolist_subtitle')">Seus objetivos para essa sessão</h4>
           </hgroup>
 
           <span>🚀</span>
@@ -193,15 +230,15 @@
           </template>
 
           <li>
-            <h4 id="todolist_empty" x-text="$t('todolist_empty')" x-show="!list.length"></h4>
+            <h4 id="todolist_empty" x-text="$t('todolist_empty')" x-show="!list.length">Ainda não há nenhuma tarefa</h4>
           </li>
         </ul>
 
         <footer>
           <form @submit.prevent="submit">
             <input type="text" :placeholder="$t('todo_placeholder')" x-model="input" />
-            <button x-text="$t('todo_add')" type="submit" aria-label="Add new task"></button>
-            <button @click="clear" x-show="!!list.length" x-text="$t('todo_clear')" type="button" aria-label="Clear todo list"></button>
+            <button x-text="$t('todo_add')" type="submit" aria-label="Add new task">Adicionar</button>
+            <button @click="clear" x-show="!!list.length" x-text="$t('todo_clear')" type="button" aria-label="Clear todo list">Limpar</button>
           </form>
         </footer>
       </section>
