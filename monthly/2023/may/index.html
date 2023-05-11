@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
+    <meta name="description" content="Projeto proposto na comunidade Ballerini do Discord." />
     <title>Pomodoro</title>
 
     <!-- Favicon Link -->
@@ -18,7 +18,7 @@
 
     <!-- Phosphor Icons -->
     <link rel="preconnect" href="https://unpkg.com" />
-    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,16 +56,16 @@
       </hgroup>
 
       <nav>
-        <button x-data="theme" @click="toggle" class="btn">
+        <button x-data="theme" @click="toggle" class="btn" aria-label="Change theme">
           <i x-show="dark" class="ph ph-sun-dim"></i>
           <i x-show="!dark" class="ph ph-moon"></i>
         </button>
 
-        <a class="btn" href="https://github.com/dreisss/challenges-ballerini/tree/main/monthly/2023/may" target="_blank">
+        <a class="btn" href="https://github.com/dreisss/challenges-ballerini/tree/main/monthly/2023/may" target="_blank" aria-label="Go to project repository">
           <i class="ph ph-github-logo"></i>
         </a>
 
-        <button x-data="language" @click="toggle" class="btn">
+        <button x-data="language" @click="toggle" class="btn" aria-label="Change language">
           <i class="ph ph-translate"></i>
         </button>
       </nav>
@@ -131,19 +131,19 @@
         <footer x-data="timer">
           <details x-data="timer_buttons" @mouseenter="show" @mouseleave="hide" :open="!finished && open">
             <div>
-              <button>
+              <button aria-label="Configure timer">
                 <i class="ph ph-gear"></i>
               </button>
 
-              <button @click="play" x-show="!running" class="main">
+              <button @click="play" x-show="!running" class="main" aria-label="Play timer">
                 <i class="ph ph-play"></i>
               </button>
 
-              <button @click="pause" x-show="running" class="main">
+              <button @click="pause" x-show="running" class="main" aria-label="Pause timer">
                 <i class="ph ph-pause"></i>
               </button>
 
-              <button @click="restart">
+              <button @click="restart" aria-label="Restart timer">
                 <i class="ph ph-clock-clockwise"></i>
               </button>
             </div>
@@ -163,9 +163,9 @@
               <h2 x-text="$t('congratulations_subtitle')"></h2>
             </hgroup>
 
-            <button @click="nextmode" x-show="next(mode) == 'focus'" x-text="$t('start_focus')" class="start-focus"></button>
-            <button @click="nextmode" x-show="next(mode) == 'short-break'" x-text="$t('start_short_break')" class="start-short-break"></button>
-            <button @click="nextmode" x-show="next(mode) == 'long-break'" x-text="$t('start_long_break')" class="start-long-break"></button>
+            <button @click="nextmode" x-show="next(mode) == 'focus'" x-text="$t('start_focus')" class="start-focus" aria-label="Start focus mode"></button>
+            <button @click="nextmode" x-show="next(mode) == 'short-break'" x-text="$t('start_short_break')" class="start-short-break" arial-label="Start short break"></button>
+            <button @click="nextmode" x-show="next(mode) == 'long-break'" x-text="$t('start_long_break')" class="start-long-break" aria-label="Start long break"></button>
           </div>
         </footer>
       </section>
@@ -188,14 +188,16 @@
             </li>
           </template>
 
-          <h4 id="todolist_empty" x-text="$t('todolist_empty')" x-show="!list.length"></h4>
+          <li>
+            <h4 id="todolist_empty" x-text="$t('todolist_empty')" x-show="!list.length"></h4>
+          </li>
         </ul>
 
         <footer>
           <form @submit.prevent="submit">
             <input type="text" :placeholder="$t('todo_placeholder')" x-model="input" />
-            <button x-text="$t('todo_add')" type="submit"></button>
-            <button @click="clear" x-show="!!list.length" x-text="$t('todo_clear')" type="button"></button>
+            <button x-text="$t('todo_add')" type="submit" aria-label="Add new task"></button>
+            <button @click="clear" x-show="!!list.length" x-text="$t('todo_clear')" type="button" aria-label="Clear todo list"></button>
           </form>
         </footer>
       </section>
