@@ -1,9 +1,13 @@
 #!/bin/env ruby
 
+# @param {String} phrase
+# @return {String}
 def invert_phrase_simplest(phrase)
   phrase.reverse
 end
 
+# @param {String} phrase
+# @return {String}
 def invert_phrase_loop(phrase)
   inverted_phrase = ""
   (1..phrase.length).each do |i|
@@ -12,6 +16,8 @@ def invert_phrase_loop(phrase)
   inverted_phrase
 end
 
+# @param {String} phrase
+# @return {String}
 def invert_phrase_swap(phrase)
   (1..phrase.length/2).each do |i|
     swap = phrase[i - 1]
