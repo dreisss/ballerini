@@ -5,7 +5,7 @@
 
 # [**_`Barra de Comandos`_**](#barra-de-comandos)
 
-Um site para encontrar suas comunidades favoritas do Discord!
+Projeto proposto na comunidade Ballerini do Discord. Um site para encontrar suas comunidades favoritas do Discord!
 
 [**Live**][live] | [**Tecnologias**](#rocket-tecnologias) | [**Features**](#sparkles-features) | [**Layout**](#art-layout)
 
