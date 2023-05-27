@@ -5,7 +5,7 @@
 
 # [**_`Pomodoro`_**](#pomodoro)
 
-Gerencie seu tempo de maneira mágica!
+Projeto proposto na comunidade Ballerini do Discord. Pomodoro Timer: Gerencie seu tempo de maneira mágica!
 
 [**Live**][live] | [**Tecnologias**](#rocket-tecnologias) | [**Features**](#sparkles-features) | [**Layout**](#art-layout)
 
