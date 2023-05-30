@@ -5,10 +5,6 @@
 Desafio: \
 **Escreva um algoritmo para encontrar o número de ocorrências de um determinado caractere em uma string**
 
-Solução: \
-| [**Crystal**](./solution.cr)
-| [**BQN**](./solution.bqn) |
-
 <div align="right">
 
 [**_`❰ Retornar para página anterior`_**][previous]

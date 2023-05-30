@@ -5,9 +5,6 @@
 Desafio: \
 **Escreva uma função para ordenar uma lista de números**
 
-Solução: \
-| [**Ruby**](./solution.rb) |
-
 <div align="right">
 
 [**_`❰ Retornar para página anterior`_**][previous]

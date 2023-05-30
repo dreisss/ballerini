@@ -5,10 +5,6 @@
 Desafio: \
 **Escreva uma função que determine se uma string é um palíndromo ou não**
 
-Solução: \
-| [**Crystal**](./solution.cr)
-| [**BQN**](./solution.bqn) |
-
 <div align="right">
 
 [**_`❰ Retornar para página anterior`_**][previous]

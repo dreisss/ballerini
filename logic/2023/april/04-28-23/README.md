@@ -5,10 +5,6 @@
 Desafio: \
 **Escreva uma função para inverter uma string**
 
-Solução: \
-| [**Ruby**](./solution.rb)
-| [**BQN**](./solution.bqn) |
-
 <div align="right">
 
 [**_`❰ Retornar para página anterior`_**][previous]
