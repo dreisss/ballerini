@@ -1,11 +1,11 @@
-[previous]: ../../
-[live]: https://dreisss.github.io/challenges-ballerini/monthly/2023/may
+[live]: https://dreisss.github.io/ballerini/monthly/2023/april
 
 <div align="center">
 
-# [**_`Pomodoro`_**](#pomodoro)
+# **Barra de Comandos**
 
-Projeto proposto na comunidade Ballerini do Discord. Pomodoro Timer: Gerencie seu tempo de maneira mágica!
+Projeto proposto na comunidade Ballerini do Discord. Um site para encontrar suas
+comunidades favoritas do Discord!
 
 [**Live**][live] | [**Tecnologias**](#rocket-tecnologias) | [**Features**](#sparkles-features) | [**Layout**](#art-layout)
 
@@ -17,8 +17,8 @@ Projeto proposto na comunidade Ballerini do Discord. Pomodoro Timer: Gerencie se
 
 Esse projeto foi feito utilizando as seguintes tecnologias:
 
-- HTML, CSS e Alpine.js
-- i18n (Alpine.js plugin)
+- HTML, CSS e JavaScript
+- API do Discord
 - Git e Github
 - Figma
 
@@ -27,16 +27,13 @@ Esse projeto foi feito utilizando as seguintes tecnologias:
 O projeto tem as seguintes features implementadas:
 
 - Responsividade
+- Conexão com API
 - Temas claro e escuro
+- Skeleton loader
 - Navegação pelo teclado
+- Atalhos de teclado
 - Línguas Português e Inglês
 
 ## :art: **Layout**
 
-Veja o layout do projeto no link do Figma: [:link:](https://www.figma.com/community/file/1236120820811357022)
-
-<div align="right">
-
-[**_`❰ Retornar para página anterior`_**][previous]
-
-</div>
+Veja o layout do projeto no link do Figma: [:link:](https://www.figma.com/community/file/1225204988453832602)
