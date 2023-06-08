@@ -2,10 +2,9 @@
 
 <div align="center">
 
-# **Pomodoro**
+# Pomodoro
 
-Projeto proposto na comunidade Ballerini do Discord. Pomodoro Timer: Gerencie
-seu tempo de maneira mágica!
+Projeto proposto na comunidade Ballerini do Discord. Pomodoro Timer: Gerencie seu tempo de maneira mágica!
 
 [**Live**][live] | [**Tecnologias**](#rocket-tecnologias) | [**Features**](#sparkles-features) | [**Layout**](#art-layout)
 
@@ -13,7 +12,7 @@ seu tempo de maneira mágica!
 
 </div>
 
-## :rocket: **Tecnologias**
+## :rocket: Tecnologias
 
 Esse projeto foi feito utilizando as seguintes tecnologias:
 
@@ -22,7 +21,7 @@ Esse projeto foi feito utilizando as seguintes tecnologias:
 - Git e Github
 - Figma
 
-## :sparkles: **Features**
+## :sparkles: Features
 
 O projeto tem as seguintes features implementadas:
 
@@ -31,6 +30,6 @@ O projeto tem as seguintes features implementadas:
 - Navegação pelo teclado
 - Línguas Português e Inglês
 
-## :art: **Layout**
+## :art: Layout
 
 Veja o layout do projeto no link do Figma: [:link:](https://www.figma.com/community/file/1236120820811357022)

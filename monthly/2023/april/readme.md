@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# **Barra de Comandos**
+# Barra de Comandos
 
 Projeto proposto na comunidade Ballerini do Discord. Um site para encontrar suas
 comunidades favoritas do Discord!
@@ -13,7 +13,7 @@ comunidades favoritas do Discord!
 
 </div>
 
-## :rocket: **Tecnologias**
+## :rocket: Tecnologias
 
 Esse projeto foi feito utilizando as seguintes tecnologias:
 
@@ -22,7 +22,7 @@ Esse projeto foi feito utilizando as seguintes tecnologias:
 - Git e Github
 - Figma
 
-## :sparkles: **Features**
+## :sparkles: Features
 
 O projeto tem as seguintes features implementadas:
 
@@ -34,6 +34,6 @@ O projeto tem as seguintes features implementadas:
 - Atalhos de teclado
 - Línguas Português e Inglês
 
-## :art: **Layout**
+## :art: Layout
 
 Veja o layout do projeto no link do Figma: [:link:](https://www.figma.com/community/file/1225204988453832602)
