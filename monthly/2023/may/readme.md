@@ -1,4 +1,4 @@
-[live]: https://dreisss.github.io/ballerini/monthly/2023/may
+[live]: https://dreisss.github.io/balle-challenges/monthly/2023/may
 
 <div align="center">
 
